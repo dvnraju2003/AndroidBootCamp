@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Tip Calculator</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="tv1">Enter Total Amount</string>
+    <string name="tipprompt">Select Tip</string>
+    <string name="showtip">"Tip: "</string>
+    <string-array name="person_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+        <string name="tipselect">Slide tip %</string>
+        <string name="personprompt">Persons:</string>
+
+
+</resources>
