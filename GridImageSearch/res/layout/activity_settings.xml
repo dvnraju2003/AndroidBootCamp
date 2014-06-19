@@ -1,0 +1,100 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.gridimagesearchtest.SettingsActivity"
+    tools:ignore="MergeRootFrame" >
+
+    <TextView
+        android:id="@+id/settingHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/settingHeading" />
+
+    <TextView
+        android:id="@+id/settingSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/settingHeading"
+        android:layout_marginTop="15dp"
+        android:text="@string/settingSize" />
+
+    <Spinner
+        android:id="@+id/color_array"
+        android:entries="@array/size_array"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/settingSize"
+        android:layout_marginLeft="49dp"
+        android:layout_toRightOf="@+id/settingSize" />
+
+    <TextView
+        android:id="@+id/settingFilter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/color_array"
+        android:layout_marginTop="15dp"
+        android:text="@string/settingFilter" />
+
+    <Spinner
+        android:id="@+id/size_array"
+        android:entries="@array/color_array"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/color_array"
+        android:layout_alignTop="@+id/settingFilter" />
+
+    <TextView
+        android:id="@+id/settingType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/size_array"
+        android:layout_marginTop="21dp"
+        android:text="@string/SettingType" />
+
+    <Spinner
+        android:id="@+id/image_array"
+        android:entries="@array/image_array"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/size_array"
+        android:layout_alignTop="@+id/settingType" />
+
+    <EditText
+        android:id="@+id/etFilter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/image_array"
+        android:layout_marginRight="24dp"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/settingSite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/etFilter"
+        android:layout_alignBottom="@+id/etFilter"
+        android:layout_alignParentLeft="true"
+        android:text="@string/settingSite" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/image_array"
+        android:layout_below="@+id/etFilter"
+        android:layout_marginTop="36dp"
+        android:onClick="onSaveSettings"
+        android:text="@string/btnSave" />
+
+</RelativeLayout>

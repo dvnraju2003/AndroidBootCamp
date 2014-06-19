@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">GridImageSearch</string>
+    <string name="action_settings">Settings</string>
+    <string name="hintSearch">Enter Image Search</string>
+    <string name="btnQuery">Search</string>
+    <string name="title_activity_image_display">ImageDisplayActivity</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="settingHeading">Advanced Search Options</string>
+    <string name="settingSize">Image Size</string>
+    <string name="settingFilter">Color Filter</string>
+    <string name="SettingType">Image Type</string>
+    <string name="settingSite">Site Filter</string>
+    <string-array name="size_array">
+        <item>icon</item>
+        <item>xxlarge</item>
+        <item>huge</item>
+        <item>medium</item>
+    </string-array>
+    <string-array name="color_array">
+        <item>black</item>
+        <item>blue</item>
+        <item>brown</item>
+        <item>gray</item>
+        <item>green</item>
+        <item>orange</item>
+        <item>pink</item>
+        <item>purple</item>
+        <item>red</item>
+        <item>teal</item>
+        <item>white</item>
+        <item>yellow</item>
+    </string-array>
+        <string-array name="image_array">
+        <item>face</item>
+        <item>photo</item>
+        <item>clipart</item>
+        <item>lineart</item>
+    </string-array>
+        <string name="btnSave">Save</string>
+        <string name="shareButton">ShareImage</string>
+
+</resources>
