@@ -128,17 +128,18 @@ public class TimelineActivity extends FragmentActivity implements ComposeTweetDi
 		}
 	  
 	  public void populateHomeTimeLineSinceLatest() {
-		  
+		    String sinceId;
 	    	Tweet latestTweet = (Tweet) lvTweets.getItemAtPosition(0);
 	    	if(latestTweet == null) {
-	    		lvTweets.onRefreshComplete();
-	    	} else if(latestTweet != null ) {
-	    	String sinceId = String.valueOf(latestTweet.getUid());
+	    		sinceId = "1";
+	    	} else {
+	    		sinceId = String.valueOf(latestTweet.getUid());
+	    	}
+	    	
 	        client.getHomeTimeLineSincelatest(sinceId, new JsonHttpResponseHandler() {
 	            public void onSuccess(JSONArray json) {
 	            	atweets.addAll(Tweet.fromJSONArray(json));
 	            	atweets.notifyDataSetChanged();
-					lvTweets.onRefreshComplete();
 	            }
 
 	            @Override
@@ -150,8 +151,7 @@ public class TimelineActivity extends FragmentActivity implements ComposeTweetDi
 					super.onFinish();
 				}
 	        });
-	      }  
-	    } 
+	      }
 	  	  
 		public void launchComposeView(int pos) {
 			  // first parameter is the context, second is the class of the activity to launch
