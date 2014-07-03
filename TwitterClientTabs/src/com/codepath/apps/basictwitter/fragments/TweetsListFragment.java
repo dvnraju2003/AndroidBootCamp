@@ -23,7 +23,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 
 import eu.erikw.PullToRefreshListView;
 
-public class TweetsListFragment extends Fragment {
+public abstract class TweetsListFragment extends Fragment {
 	private ArrayList<Tweet> tweets;
 	private ArrayAdapter<Tweet> atweets;
 	private PullToRefreshListView lvTweets;
@@ -46,32 +46,22 @@ public class TweetsListFragment extends Fragment {
 		lvTweets.setOnScrollListener(new EndlessScrollListener() {
 		    @Override
 		    public void onLoadMore(int page, int totalItemsCount) {
-	                // Triggered only when new data needs to be appended to the list
-	                // Add whatever code is needed to append new items to your AdapterView
 		    	Tweet lastTweet = (Tweet) lvTweets.getItemAtPosition(totalItemsCount-1);
 		    	if(lastTweet == null){
 		    		atweets.clear();
 		    		atweets.notifyDataSetInvalidated();
 	        	}else{
-	        		String Id = String.valueOf(lastTweet.getUid()-1);
-	        		client.getExtraHomeTimeline(Id,new JsonHttpResponseHandler() {
-	        			@Override
-	        			public void onSuccess(JSONArray json) {
-	        				atweets.addAll(Tweet.fromJSONArray(json));
-	        			}
-	        			@Override
-	        			public void onFailure(Throwable e, String s) {
-	        				Log.d("debug", "failed");
-	        				Log.d("debug",s.toString());
-	        				// TODO Auto-generated method stub
-	        			}
-	        		});
+	        		String maxId = String.valueOf(lastTweet.getUid()-1);
+	        		loadMore(maxId);	        	
+	        		}
 	        	  } 
-		        }
 	        });
 		return v;
 	}
 	
+    public abstract void loadMore(String maxId);
+    
+    
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub

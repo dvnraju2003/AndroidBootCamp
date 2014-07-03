@@ -44,5 +44,23 @@ public class MentionsTimelineFragment extends TweetsListFragment {
 	}
 
 
+	@Override
+	public void loadMore(String maxId) {
+		client.getExtraMentionTimeLine(maxId,new JsonHttpResponseHandler() {
+			@Override
+			public void onSuccess(JSONArray json) {
+				addAll(Tweet.fromJSONArray(json));
+			}
+			@Override
+			public void onFailure(Throwable e, String s) {
+				Log.d("debug", "failed");
+				Log.d("debug",s.toString());
+				// TODO Auto-generated method stub
+			}
+		});
+		
+	}
+
+
 
 }

@@ -40,7 +40,7 @@ public class TwitterClient extends OAuthBaseClient {
     	client.get(apiUrl, params, handler);
     }
     
-    public void getExtraHomeTimeline(String maxid,AsyncHttpResponseHandler handler) {
+    public void getExtraHomeTimeline(String maxid, AsyncHttpResponseHandler handler) {
     	Log.d("debug", "came here with "+maxid);
     	String apiUrl = getApiUrl("statuses/home_timeline.json");
     	RequestParams params = new RequestParams();
@@ -103,8 +103,26 @@ public class TwitterClient extends OAuthBaseClient {
     	String apiUrl = getApiUrl("users/show.json");
     	RequestParams params = new RequestParams();
     	params.put("screen_name", screenName);
-    	client.get(apiUrl, params,handler);    	
+    	client.get(apiUrl, params,handler);
     }
+    
+	public void getExtratUserTimeLine(String maxId,String ScreenName,AsyncHttpResponseHandler handler){
+		String url = getApiUrl("statuses/user_timeline.json");
+		RequestParams params = new RequestParams();
+		params.put("max_id", maxId);
+		Log.d("debug", "ScreenName is "+ScreenName);
+		if(ScreenName != null && !ScreenName.equals("")) {
+	    	params.put("screen_name", ScreenName);
+		}
+		client.get(url, params, handler);
+	}
+	
+	public void getExtraMentionTimeLine(String maxId,AsyncHttpResponseHandler handler){
+		String url = getApiUrl("statuses/mentions_timeline.json");
+		RequestParams params = new RequestParams();
+		params.put("max_id", maxId);
+		client.get(url, params, handler);
+	}
     // CHANGE THIS
     // DEFINE METHODS for different API endpoints here
     /*public void getInterestingnessList(AsyncHttpResponseHandler handler) {

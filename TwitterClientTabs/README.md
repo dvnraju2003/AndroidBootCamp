@@ -1,5 +1,11 @@
 Completed Tasks in this Basic Twitter Client with Fragments.
 
+
+Worked mostly on UI changes.
+
+Used various resources online. used a new library called picasso for loading images.
+
+
 Includes all required user stories from Week 3 Twitter Client
 User can switch between Timeline and Mention views using tabs.
 User can view their home timeline tweets.

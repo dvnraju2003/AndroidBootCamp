@@ -14,7 +14,7 @@ public class userTimelineFragment extends TweetsListFragment {
 	
 	private TwitterClient client;
 	String screenName;
-
+    String StoreScreenName;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -27,6 +27,7 @@ public class userTimelineFragment extends TweetsListFragment {
 	}
 	
 	public void populateTimeline(String screenName) {
+		StoreScreenName = screenName;
 		showProgressBar();
 		client.getUserTimeline(screenName,new JsonHttpResponseHandler() {			
 			@Override
@@ -40,6 +41,23 @@ public class userTimelineFragment extends TweetsListFragment {
 			@Override
 			public void onFailure(Throwable e, String s) {
 				hideProgressBar();
+				Log.d("debug",s.toString());
+				// TODO Auto-generated method stub
+			}
+		});
+		
+	}
+
+	@Override
+	public void loadMore(String maxId) {
+		client.getExtratUserTimeLine(maxId,StoreScreenName,new JsonHttpResponseHandler() {
+			@Override
+			public void onSuccess(JSONArray json) {
+				addAll(Tweet.fromJSONArray(json));
+			}
+			@Override
+			public void onFailure(Throwable e, String s) {
+				Log.d("debug", "failed");
 				Log.d("debug",s.toString());
 				// TODO Auto-generated method stub
 			}
