@@ -1,0 +1,30 @@
+<!-- fragment_edit_name.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/edit_name"
+	android:layout_width="wrap_content" android:layout_height="wrap_content"
+	android:layout_gravity="center" android:orientation="vertical"  >
+
+    
+
+	<EditText
+		android:id="@+id/txt_your_name"
+		android:layout_width="match_parent"  
+		android:layout_height="wrap_content" 
+        android:inputType="textMultiLine"
+        android:maxLength="140"
+		android:imeOptions="actionDone" />
+	
+       <TextView
+        android:id="@+id/charactercount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="count" />
+
+	
+	
+	<Button
+            android:id="@+id/btntweet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tweet" />
+</LinearLayout>

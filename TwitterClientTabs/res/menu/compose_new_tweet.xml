@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.codepath.apps.basictwitter.ComposeNewTweet" >
+
+    <item
+        android:id="@+id/tweet_item"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="tweet"/>
+
+</menu>
